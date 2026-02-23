@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudcart
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cloudcart
+  template:
+    metadata:
+      labels:
+        app: cloudcart
+    spec:
+      containers:
+        - name: cloudcart
+          image: gcr.io/YOUR_PROJECT_ID/cloudcart:latest
+          ports:
+            - containerPort: 8080
